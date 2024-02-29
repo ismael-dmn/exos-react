@@ -47,12 +47,9 @@ console.log(filterNameStartByA(["Maelys","Augustin","Ismael"]))
  *   - Vous ne pouvez pas utiliser de variable (autre que l'argument de la fonction)
   */
 
-let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const sum = (array) => (
-  let somme = array.reduce((acc, i) => {acc + i}, 0)
-)
-
-console.log(somme)
+const sum = (array) => array.reduce((acc, i) => (acc + i), 0);
+let array = [1, 2, 3];
+console.log(sum(array))
 
 /**
  * Utiliser la fonction .find sur le tableau passé en paramètre
@@ -79,8 +76,9 @@ const tablo = [
     {id: 3, name: 'Foo'},
     {id: 4, name: 'Bar'},
   ];
-const findUserById = tablo.find(({id}) => id === 3);
+//const findUserById = tablo.find(({id}) => id === 3);
+const findUserById = (tablo, id) => tablo.find(i => i.id === id)?.name;
 
-console.log(findUserById)
+console.log(findUserById(tablo, 3))
 
 module.exports = {multiplyByTwo, filterNameStartByA, sum, findUserById};

@@ -12,7 +12,9 @@
  *  - interdiction d'utiliser slice ou splice
  */
 
-const extractFirstTwo = () => {}
+const arr1 = [1, 2, 3]
+const extractFirstTwo = (arr1) => (newArr = [...arr1, exclu])
+console.log(extractFirstTwo(newArr))
 
 /**
  * utilisez la décomposition pour extraire la premiere case du tableau et le reste du tableau
