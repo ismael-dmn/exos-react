@@ -12,10 +12,7 @@
  *  - interdiction d'utiliser slice ou splice
  */
 
-const extractFirstTwo = (array) => {
-    const [ firstCase, secondCase, ...restArr] = array; 
-    return [firstCase, secondCase];
-}
+const extractFirstTwo = ([a, b, ]) => ([a, b]);
 console.log(extractFirstTwo([1, 2, 3]))
 
 /**
@@ -25,10 +22,7 @@ console.log(extractFirstTwo([1, 2, 3]))
  * exemple: [1, 2, 3] => [2, 3]
  */
 
-const extractRest = (array) => {
-    const [ firstCase2, ...restArr] = array; 
-    return restArr;
-}
+const extractRest = ([a, ...restArr]) => restArr;
 console.log(extractRest([1, 2, 3]))
 
 /**
@@ -43,10 +37,7 @@ console.log(extractRest([1, 2, 3]))
  * - interdiction d'utiliser l'opérateur "." pour accéder au champ "name"
  */
 
-const extractName = (object) => {
-    const {name, ...restObj} = object
-    return {name}
-}
+const extractName = ({name, ...restObj}) => name;
 console.log(extractName({name: "toto", age: 42}))
 
 /**
@@ -60,6 +51,7 @@ console.log(extractName({name: "toto", age: 42}))
  * 
  */
 
-const removePassword = () => {};
+const removePassword = ({password, ...rest}) => rest;
+console.log(removePassword({name: "toto", password: "1234"}))
 
 module.exports = {extractFirstTwo, extractRest, extractName, removePassword}
