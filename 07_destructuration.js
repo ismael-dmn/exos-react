@@ -43,7 +43,11 @@ console.log(extractRest([1, 2, 3]))
  * - interdiction d'utiliser l'opérateur "." pour accéder au champ "name"
  */
 
-const extractName = (object) => {}
+const extractName = (object) => {
+    const {name, ...restObj} = object
+    return {name}
+}
+console.log(extractName({name: "toto", age: 42}))
 
 /**
  * utilisez la décomposition pour retourner l'objet utilisateur sans le champ "password"
