@@ -1,4 +1,4 @@
-//const {sleep} = require("../exercices/10_promise");
+const {sleep} = require("../exos-react/10_promise.js");
 
 /**
  * Créez une fonction synchrone qui attend 2 seconde puis execute le callback passé en paramètre
@@ -12,7 +12,12 @@
  * 
  */
 const usingThen = (cb) => {
-}
+    //console.log("start");
+    sleep().then(() => {
+        //console.log("end");
+    });
+};
+usingThen();
 
 /**
  * Créez une fonction asynchrone qui attend 2 seconde puis execute le callback passé en paramètre
@@ -25,9 +30,12 @@ const usingThen = (cb) => {
  *   - ne pas utiliser .then
  */
 
-const usingAwait = (cb) => {
-
-}
+const usingAwait = async (cb) => {
+    //console.log("start");
+    await sleep();
+    //console.log("end");
+};
+usingAwait();
 
 /**
  * Créez une fonction asynchrone qui effectue un appel api vers l'url passé en paramètre
@@ -42,11 +50,24 @@ const usingAwait = (cb) => {
  */
 
 //décommentez la ligne suivante une fois le package installé
-//const axios = require("axios");
+
+const axios = require("axios");
+
+/*const apiResponse = async (url) => {
+    const request = () => new Promise(resolve => setTimeout(resolve, axios.get(url)));
+    request().then(data => {
+        console.log("Résultat de la requête API :", data);
+    });
+};*/
 
 const apiResponse = async (url) => {
+    const response = await axios.get(url);
+    return response.data;
+};
 
-}
-
+apiResponse("https://jsonplaceholder.typicode.com/todos/1")
+.then(data => {
+    console.log("Résultat de la requête API :", data);
+});
 
 module.exports = {usingThen, usingAwait, apiResponse};
