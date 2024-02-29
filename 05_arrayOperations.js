@@ -10,8 +10,9 @@
  * 
   */
 
-const double = [1,2,3,4,5];
-const multiplyByTwo = double => double.map(i => i * 2)
+const multiplyByTwo = array => array.map(i => i * 2)
+
+console.log(multiplyByTwo([1, 2, 3]));
 
 /**
  * Utiliser la fonction .filter sur le tableau passé en paramètre
@@ -23,10 +24,18 @@ const multiplyByTwo = double => double.map(i => i * 2)
  *   - Vous ne pouvez pas utiliser de variable (autre que l'argument de la fonction)
   */
 
-const mots = ["Maelys","Augustin","Ismael"];
-const filterNameStartByA = filtre => (
-  filtre.filter((mots) => mots[0] === 'A')
+// Fonction filtre faite par moi
+
+/**const filterNameStartByA = array => (
+*  array.filter((mots) => mots[0] === "A")
+*)
+*/
+
+const filterNameStartByA = array => (
+  array.filter(i => i.startsWith("A"))
 )
+
+console.log(filterNameStartByA(["Maelys","Augustin","Ismael"]))
 
 /**
  * Utiliser la fonction .reduce sur le tableau passé en paramètre
@@ -38,7 +47,12 @@ const filterNameStartByA = filtre => (
  *   - Vous ne pouvez pas utiliser de variable (autre que l'argument de la fonction)
   */
 
-const sum = (array) => {}
+let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const sum = (array) => (
+  let somme = array.reduce((acc, i) => {acc + i}, 0)
+)
+
+console.log(somme)
 
 /**
  * Utiliser la fonction .find sur le tableau passé en paramètre
@@ -65,8 +79,8 @@ const tablo = [
     {id: 3, name: 'Foo'},
     {id: 4, name: 'Bar'},
   ];
-const findUserById = (tablo, id) => (tablo.find(id))
+const findUserById = tablo.find(({id}) => id === 3);
 
-console.log(multiplyByTwo(double),filterNameStartByA(mots), findUserById(tablo, 3))
+console.log(findUserById)
 
 module.exports = {multiplyByTwo, filterNameStartByA, sum, findUserById};
