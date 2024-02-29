@@ -19,4 +19,4 @@
 const getGroupName = ({name, group}) => group?.name;
 console.log(getGroupName({name: "John", group: {name: "admin"}}))
 
-module.exports = {getGroupName};
+module.exports = {getGroupName}; 
